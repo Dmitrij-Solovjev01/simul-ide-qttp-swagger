@@ -1,8 +1,0 @@
-/http-parser/
-/libuv/
-/mongo-cxx-driver/
-/qredisclient/
-/build-*
-*.user
-*.o
-*.a

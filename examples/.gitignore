@@ -1,5 +1,0 @@
-/build-*
-*.dylib
-*.a
-*.so
-*.dll
