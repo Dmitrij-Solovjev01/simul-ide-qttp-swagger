@@ -11,13 +11,23 @@ sudo apt-get install bison build-essential flex gperf libasound2-dev libatkmm-1.
 #https://wiki.qt.io/Building_Qt_5_from_Git
 
 git clone git://code.qt.io/qt/qt5.git
+
 cd qt5/
+
 git checkout 5.15.2
+
 perl init-repository
+
 mkdir qt6-build
+
 mkdir qt6-comp
+
 cd qt6-build/
+
 ../configure -prefix ../qt6-comp/ -xcb -xcb-xlib -bundled-xcb-xinput #Maybe without "-bundled-xcb-xinput"
+
 c y
+
 make -j12
+
 make install
