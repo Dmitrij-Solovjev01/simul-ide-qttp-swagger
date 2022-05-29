@@ -38,3 +38,6 @@ The folder with the compiled qt library should be on the path /home/$USER
 sudo docker build -t test1 -f Dockerfile /home/$USER/
 sudo docker run -p 5900:5900 --rm test1
 open VNC client (Remmina for example) and set address "127.0.0.1:5900" and password "trustno1"
+You will see something like this:
+
+![image](https://user-images.githubusercontent.com/96019653/170889580-69174297-78fe-48fc-a7a8-4e09e6f66a59.png)
