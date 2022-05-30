@@ -50,3 +50,10 @@ open VNC client (Remmina for example) and set address "127.0.0.1:5900" and passw
 You will see something like this:
 
 ![image](https://user-images.githubusercontent.com/96019653/170889580-69174297-78fe-48fc-a7a8-4e09e6f66a59.png)
+# Tests:
+1. you can see the valgrid_log in the project
+2. you can see the heaptrack.gz in the project
+![image](https://user-images.githubusercontent.com/96019653/170943982-35e8a25d-63b1-40fd-b5d3-fa4ae0a2e59f.png)
+
+
+After testing the project using the valgrid and heaptrack utilities, no significant shortcomings were identified. The tests passed successfully, no memory leaks and excessive gluttony were found.
