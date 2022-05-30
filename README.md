@@ -32,7 +32,7 @@ make -j12
 
 make install
 
-The folder with the compiled qt library should be on the path /home/$USER
+The folder with the compiled qt library should be on the path /home/$USER/qt5/qt6-comp
 
 #Run
 sudo docker build -t test1 -f Dockerfile /home/$USER/
