@@ -76,7 +76,7 @@ class EditorWindow : public QWidget
     void upload();
     void findReplaceDialog();
 
-  public:
+  private:
     static EditorWindow *m_pSelf;
     void createWidgets();
     void createActions();

@@ -172,7 +172,7 @@ void MainWindow::createWidgets()
     m_sidepanel->tabBar()->setStyleSheet("QTabBar { font-size:" + fontSize +
                                          "px; }");
     m_Centralsplitter->addWidget(m_sidepanel);
-/*#########################################################################################*/
+
     m_components = new ComponentSelector(m_sidepanel);
     m_components->setObjectName("components");
     m_sidepanel->addTab(m_components, tr("Components"));
@@ -188,13 +188,12 @@ void MainWindow::createWidgets()
     m_itemprop = new PropertiesWidget(this);
     m_itemprop->setObjectName("properties");
     m_sidepanel->addTab(m_itemprop, tr("Properties"));
-/*#########################################################################################*/
 
     m_fileSystemTree = new FileWidget(this);
     m_fileSystemTree->setObjectName("fileExplorer");
     m_sidepanel->addTab(m_fileSystemTree, tr("File explorer"));
 
-    m_circuit = new CircuitWidget(this);                                                    //ТУТ
+    m_circuit = new CircuitWidget(this);
     m_circuit->setObjectName("circuit");
     m_Centralsplitter->addWidget(m_circuit);
 

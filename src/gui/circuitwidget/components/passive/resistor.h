@@ -34,7 +34,6 @@ class MAINMODULE_EXPORT Resistor : public Component, public eResistor
 
     public:
         Resistor( QObject* parent, QString type, QString id );
-
         ~Resistor();
 
         static Component* construct( QObject* parent, QString type, QString id );

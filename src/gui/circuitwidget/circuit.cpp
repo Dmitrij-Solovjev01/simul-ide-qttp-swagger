@@ -31,8 +31,6 @@
 
 #include <QCoreApplication>
 
-#include <iostream>
-
 static const char* Circuit_properties[] = {
     QT_TRANSLATE_NOOP("App::Property","Speed"),
     QT_TRANSLATE_NOOP("App::Property","ReactStep"),
@@ -296,7 +294,6 @@ void Circuit::loadDomDoc( QDomDocument* doc )
                     element.setAttribute(   "endpinid", endpin->objectName() );
 
                     loadProperties( element, con );
-                    std::cout << "Я подгружаю свойства" << std::endl;
 
                     QString enodeId = element.attribute( "enodeid" );
                     eNode*  enode   = nodMap[enodeId];
@@ -341,7 +338,6 @@ void Circuit::loadDomDoc( QDomDocument* doc )
                 
                 Node* joint = new Node( this, type, id );
                 loadProperties( element, joint );
-                std::cout << "Я подгружаю свойства" << std::endl;
                 compList.append( joint );
                 jointList.append( joint );
 
@@ -372,8 +368,9 @@ void Circuit::loadDomDoc( QDomDocument* doc )
                 if( item )
                 {
                     loadProperties( element, item );
-                    std::cout << "Я подгружаю свойства" << std::endl;
-                    if( type.contains( "Relay" ) ) {
+
+                    if( type.contains( "Relay" ) )
+                    {
                         if( element.hasAttribute( "Itrig") )
                         {
                             QVariant value( element.attribute( "Itrig" ) );
@@ -581,16 +578,17 @@ void Circuit::importCirc(  QPointF eventpoint  )
     m_pasting = false;
 }
 
-Component* Circuit::createItem( QString type, QString id ) {
-    std::cout << " Я создаю: " << type.toStdString() << "  " << id.toStdString() <<std::endl;
-
-    for( LibraryItem* libItem : ItemLibrary::self()->items() ) {
-        if( libItem->type()==type ) {
+Component* Circuit::createItem( QString type, QString id )
+{
+    //qDebug() << "Circuit::createItem" << type << id;
+    for( LibraryItem* libItem : ItemLibrary::self()->items() )
+    {
+        if( libItem->type()==type )
+        {
             Component* comp = libItem->createItemFnPtr()( this, type, id );
-            //comp->
-            std::cout << "ДИЧЬ" <<std::endl;
             
-            if (comp) {
+            if( comp )
+            {
                 QString category = libItem->category();
                 if( ( category != "Meters" )
                 &&  ( category != "Sources" )
@@ -606,8 +604,7 @@ Component* Circuit::createItem( QString type, QString id ) {
 void Circuit::loadProperties( QDomElement element, Component* Item )
 {
     loadObjectProperties( element, Item );
-    std::cout << "Я подгружаю свойства" << std::endl;
-
+    
     Item->setLabelPos();
     Item->setValLabelPos();
 
@@ -618,8 +615,8 @@ void Circuit::loadProperties( QDomElement element, Component* Item )
     if ( number > m_seqNumber ) m_seqNumber = number;               // Adjust item counter: m_seqNumber
 }
 
-void Circuit::loadObjectProperties( QDomElement element, QObject* Item ) {
-std::cout << "Я подгружаю свойства" << std::endl;
+void Circuit::loadObjectProperties( QDomElement element, QObject* Item )
+{
     QHash<QString, QString> atrMap;          // Make properties case insentive
     QDomNamedNodeMap atrs = element.attributes();
 
@@ -893,10 +890,8 @@ void Circuit::redo()
     if( pauseSim ) Simulator::self()->runContinuous();
 }
 
-
 void Circuit::copy( QPointF eventpoint )
 {
-    std::cout <<"Я копирую" <<std::endl;
     if( m_con_started ) return;
 
     m_eventpoint = togrid(eventpoint);
@@ -975,7 +970,8 @@ void Circuit::paste( QPointF eventpoint )
 bool  Circuit::pasting() { return m_pasting; }
 QPointF Circuit::deltaMove(){ return m_deltaMove; }
 
-void Circuit::newconnector( Pin*  startpin ) {
+void Circuit::newconnector( Pin*  startpin )
+{
     saveState();
 
     //if ( m_subcirmode ) return;

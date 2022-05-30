@@ -126,7 +126,7 @@ void CircuitView::clear()
 
     m_enterItem = 0l;
     
-    m_circuit = new Circuit( -1600, -1200, 3200, 2400, this );              //ТУТ
+    m_circuit = new Circuit( -1600, -1200, 3200, 2400, this );
     setScene( m_circuit );
     centerOn( 900, 600 );
     //setCircTime( 0 );
@@ -137,18 +137,14 @@ void CircuitView::wheelEvent( QWheelEvent *event )
     qreal scaleFactor = pow( 2.0, event->delta() / 700.0);
     scale( scaleFactor, scaleFactor );
 }
-#include <iostream>
-void CircuitView::dragEnterEvent(QDragEnterEvent *event)                    // ТУТ
+
+void CircuitView::dragEnterEvent(QDragEnterEvent *event)
 {
     event->accept();
     m_enterItem = 0l;
 
     QString type = event->mimeData()->html();
     QString id   = event->mimeData()->text();
-    std::cout <<type.toStdString() << " " << id.toStdString() <<std::endl;
-
-    //Resistor Resistor
-
 
     if( type.isEmpty() || id.isEmpty() ) return;
 
@@ -156,7 +152,8 @@ void CircuitView::dragEnterEvent(QDragEnterEvent *event)                    // �
     if( m_enterItem )
     {
         Circuit::self()->saveState();
-        if( type == "Subcircuit" ) {
+        if( type == "Subcircuit" )
+        {
             SubCircuit* subC = static_cast<SubCircuit*>( m_enterItem );
             subC->setLogicSymbol( true );
         }

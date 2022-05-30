@@ -185,15 +185,14 @@ void ComponentSelector::addItem( LibraryItem* libItem )
     }
 }
 
-#include <iostream>
-using namespace std;
-void ComponentSelector::addItem( const QString &caption, const QString &_category, const QString &icon, const QString &type ) {
-    QStringList nameFull = caption.split( "???" );              //название библиотеки +???
+void ComponentSelector::addItem( const QString &caption, const QString &_category, const QString &icon, const QString &type )
+{
+    QStringList nameFull = caption.split( "???" );
     QString         name = nameFull.first();
     QString info = "";
     if( nameFull.size() > 1 ) info = nameFull.last();
     
-    //cout <<name.toStdString()<<info.toStdString()<<endl;
+    //qDebug()<<name<<info;
     
     bool hidden = MainWindow::self()->settings()->value( name+"/hidden" ).toBool();
 
@@ -209,7 +208,8 @@ void ComponentSelector::addItem( const QString &caption, const QString &_categor
         bool c_hidden = false;
         bool expanded = false;
 
-        if( isRootCat ) {                                       //раскраска новой категории
+        if( isRootCat )                              // Is Main Category
+        {
             catItem = new QTreeWidgetItem( this );
             catItem->setIcon( 0, QIcon(":/null-0.png") );
             catItem->setTextColor( 0, QColor( 110, 95, 50 )/*QColor(255, 230, 200)*/ );
@@ -249,16 +249,18 @@ void ComponentSelector::addItem( const QString &caption, const QString &_categor
 
         catItem->setExpanded( expanded );
         catItem->setHidden( c_hidden );
-    } else {                                                    //Нужная категория была создана ранее
+    }
+    else                                                                // Find Category
+    {
         QList<QTreeWidgetItem*> list = findItems( category, Qt::MatchExactly | Qt::MatchRecursive );
 
         if( !list.isEmpty() ) catItem = list.first();
     }
-    if( !catItem ) return;                                      //Категорий нет (Ошибка?)
+    if( !catItem ) return;
 
-/*    if( !m_categories.contains( name, Qt::CaseSensitive ) )
-        m_categories.append( name );                            //Бесполезный кусок кода
-*/
+    if( !m_categories.contains( name, Qt::CaseSensitive ) )
+        m_categories.append( name );
+
     QTreeWidgetItem* item =  new QTreeWidgetItem(0);
     QFont font = item->font(0);
     
@@ -342,10 +344,10 @@ void ComponentSelector::slotItemClicked( QTreeWidgetItem* item, int column )
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
 
-    +drag->exec( Qt::CopyAction | Qt::MoveAction, Qt::CopyAction );
+    drag->exec( Qt::CopyAction | Qt::MoveAction, Qt::CopyAction );
 }
 
-/*void ComponentSelector::slotContextMenu( const QPoint& point )
+void ComponentSelector::slotContextMenu( const QPoint& point )
 {
     QMenu menu;
     
@@ -358,7 +360,7 @@ void ComponentSelector::slotItemClicked( QTreeWidgetItem* item, int column )
     //menu->addSeparator();
     
     menu.exec( mapToGlobal(point) );
-}*/
+}
 
 void ComponentSelector::slotManageComponents()
 {

@@ -124,11 +124,11 @@ QColor PlotterWidget::getColor( int channel )
     channel--;
     return m_color[channel];
 }
-#include <iostream>
 
 void PlotterWidget::step()
 {
     if( m_numchan == 0 ) return; // No data to plot
+    //qDebug() << "PlotterWidget::step" << m_numchan;
 
     if( ++m_counter >= m_ticksPs )
     {

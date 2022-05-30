@@ -35,7 +35,7 @@ Connector::Connector( QObject* parent, QString type, QString id, Pin* startpin, 
     m_isBus = false;
     m_freeLine = false;
 
-    if( startpin )                              //ТУТ
+    if( startpin )
     {
         m_startPin   =  startpin;
         m_startpinid = startpin->objectName();
@@ -43,7 +43,7 @@ Connector::Connector( QObject* parent, QString type, QString id, Pin* startpin, 
         if( m_startPin->isBus() ) setIsBus( true );
     }
 
-    if( endpin )                                //ТУТ
+    if( endpin )
     {
         m_endPin   = endpin;
         m_endpinid = endpin->objectName();
@@ -132,12 +132,8 @@ void Connector::refreshPointList()
     //qDebug() << "lines " << count << "connector poinlist" << m_conLineList;
 }
 
-#include <iostream>
-using namespace std;
-
-void Connector::addConLine( ConnectorLine* line, int index )                                    //ТУТ
+void Connector::addConLine( ConnectorLine* line, int index )
 {
-    cout <<"TEST CONNECTOR CATCH"<<endl;
     if( index > 0  && index < m_conLineList.size() ) disconnectLines( index-1, index );
 
     m_conLineList.insert( index, line );

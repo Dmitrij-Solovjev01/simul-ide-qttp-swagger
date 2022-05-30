@@ -21,18 +21,6 @@
 #include "mainwindow.h"
 #include "circuit.h"
 #include "filebrowser.h"
-#include <QSvgGenerator>
-
-#include "circuitwidget.h"
-#include "circuitview.h"
-#include "circuit.h"
-#include "mainwindow.h"
-#include "component.h"
-#include "mcucomponent.h"
-#include "subcircuit.h"
-#include "utils.h"
-#include <QtWidgets>
-    #include <QGraphicsView>
 
 CircuitWidget*  CircuitWidget::m_pSelf = 0l;
 
@@ -78,17 +66,10 @@ CircuitWidget::CircuitWidget( QWidget *parent  )
 }
 CircuitWidget::~CircuitWidget() { }
 
-void CircuitWidget::clear()
-{
-    m_circView.clear();
-    m_circView.setCircTime( 0 );
-}
 
-#include<iostream>
-using namespace std;
 
 Component* CircuitWidget::DIM_create(QString type, QString id){
-    cout << "НАСЯНИКА, Я СДЕЛАЛ!: " << id.toStdString() <<endl;
+    //cout << "НАСЯНИКА, Я СДЕЛАЛ!: " << id.toStdString() <<endl;
     Component*  m_enterItem;
     m_enterItem = m_circView.m_circuit->createItem(type,id);
 
@@ -108,6 +89,12 @@ Component* CircuitWidget::DIM_create(QString type, QString id){
 };
 
 
+
+void CircuitWidget::clear()
+{
+    m_circView.clear();
+    m_circView.setCircTime( 0 );
+}
 
 void CircuitWidget::createActions()
 {

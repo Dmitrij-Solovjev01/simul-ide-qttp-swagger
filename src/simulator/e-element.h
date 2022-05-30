@@ -90,7 +90,7 @@ class MAINMODULE_EXPORT eElement
     static GNU_CONST_STATIC_FLOAT_DECLARATION double digital_low       = 0.0;
     static GNU_CONST_STATIC_FLOAT_DECLARATION double digital_threshold = 2.5;
 
-  public:
+  protected:
     std::vector<ePin *> m_ePin;
 
     std::string m_elmId;

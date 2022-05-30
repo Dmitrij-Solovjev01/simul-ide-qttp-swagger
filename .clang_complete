@@ -1,5 +1,0 @@
--I ./lib/http/include
--I ./lib/libuv/include
--I ./lib/http-parser
--I ./lib/gmock/include
--I ./lib/openssl/openssl/include

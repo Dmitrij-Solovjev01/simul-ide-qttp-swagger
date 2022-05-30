@@ -75,7 +75,7 @@ class MAINMODULE_EXPORT MainWindow : public QMainWindow
   protected:
     void closeEvent(QCloseEvent *event);
 
-  public:
+  private:
     static MainWindow *m_pSelf;
 
     void loadPluginsAt(QDir pluginsDir);
@@ -98,7 +98,7 @@ class MAINMODULE_EXPORT MainWindow : public QMainWindow
     QString m_circHelp;
 
     QHash<QString, QPluginLoader *> m_plugins;
-
+    public:
     CircuitWidget *m_circuit;
     ComponentSelector *m_components;
     PropertiesWidget *m_itemprop;

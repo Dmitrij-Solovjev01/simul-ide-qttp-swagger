@@ -144,7 +144,7 @@ void ItemLibrary::loadItems()
     addItem( RelaySPST::libraryItem() );
     // Passive
     addItem( Resistor::libraryItem() );
-    addItem( ResistorDip::libraryItem() );                      /// ТУТ
+    addItem( ResistorDip::libraryItem() );
     addItem( Potentiometer::libraryItem() );
     addItem( Capacitor::libraryItem() );
     addItem( elCapacitor::libraryItem() );
@@ -287,9 +287,9 @@ LibraryItem *ItemLibrary::itemByName(const QString name) const
 
 LibraryItem* ItemLibrary::libraryItem(const QString type ) const
 {
-    for( LibraryItem* item : m_items ) {
-        if( item->type() == type )
-            return item;
+    for( LibraryItem* item : m_items )
+    {
+        if( item->type() == type ) return item;
     }
     return 0l;
 }

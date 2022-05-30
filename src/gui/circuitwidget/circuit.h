@@ -110,7 +110,7 @@ class MAINMODULE_EXPORT Circuit : public QGraphicsScene
 
         QString newSceneId();
 
-        void newconnector( Pin*  startpin );                                    //Похоже что ТУТ
+        void newconnector( Pin*  startpin );
         void closeconnector( Pin* endpin );
         void deleteNewConnector();
         void updateConnectors();
@@ -168,7 +168,7 @@ class MAINMODULE_EXPORT Circuit : public QGraphicsScene
         void convertSubCircs();
 
  static Circuit*  m_pSelf;
-
+    public:
         Langs m_lang;
  
         QDomDocument m_domDoc;

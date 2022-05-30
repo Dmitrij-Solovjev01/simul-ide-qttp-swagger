@@ -24,15 +24,6 @@ TEMPLATE = app
 
 TARGET = simulide
 
-############################################################################
-#include(/home/dima/QT_Project/SimulIDE-master/lalala/config/config.pri)
-#include(/home/dima/QT_Project/SimulIDE-master/core.pri)
-#HEADERS += laptops.h
-#DESTDIR = $$PWD
-
-############################################################################
-
-
 QT += core gui multimedia widgets serialport concurrent script xml svg
 
 win32-g++{

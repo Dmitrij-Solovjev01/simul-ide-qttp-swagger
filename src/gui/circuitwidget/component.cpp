@@ -60,18 +60,22 @@ Component::Component( QObject* parent, QString type, QString id )
     m_printable = false;
     m_BackGround = "";
 
-    if( ( type != "Connector" )&&( type != "Node" ) ) {
+    if( ( type != "Connector" )&&( type != "Node" ) )
+    {
         LibraryItem* li= ItemLibrary::self()->libraryItem( type );
 
-        if( li ) {
+        if( li )
+        {
             if( (type == "Subcircuit")
               ||(type == "AVR")
               ||(type == "PIC")
-              ||(type == "Arduino") ) {
+              ||(type == "Arduino") )
+            {
                 QString name = id;
                 name = name.split( "-" ).first();
                 m_help = new QString( li->getHelpFile( name ) );
-            } else m_help = li->help();
+            }
+            else m_help = li->help();
         }
     }
     
@@ -162,7 +166,7 @@ void Component::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
         }
         for( QGraphicsItem* item : itemlist )
         {
-            ConnectorLine* line =  qgraphicsitem_cast<ConnectorLine* >( item );                     // черт зарыт ТУТ
+            ConnectorLine* line =  qgraphicsitem_cast<ConnectorLine* >( item );
             if( line->objectName() == "" ) 
             {
                 //line->move( delta );
@@ -409,7 +413,8 @@ void Component::setValue( double val)
 }
 
 QString Component::unit()                { return m_mult+m_unit; }
-void Component::setUnit( QString un ) {
+void Component::setUnit( QString un ) 
+{ 
     QString mul = " ";
     un.replace( " ", "" );
     if( un.size() > 0 ) 

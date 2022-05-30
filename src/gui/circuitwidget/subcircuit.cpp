@@ -168,7 +168,7 @@ void SubCircuit::initChip()
     Chip::initChip();
     initSubcircuit();
 }
-#include <iostream>
+
 void SubCircuit::initSubcircuit()
 {
     //qDebug() << "SubCircuit::initSubcircuit datafile: " << m_subcFile;
@@ -240,7 +240,6 @@ void SubCircuit::initSubcircuit()
             }*/
             if( type == "eResistor" )  
             {
-                std::cout << "Моя пришла ломать начаник"<<std::endl;
                 eResistor* eresistor = new eResistor( id.toStdString() );
                 if( element.hasAttribute("resistance") ) eresistor->setRes( element.attribute( "resistance" ).toDouble() );
                 ecomponent = eresistor;
@@ -248,7 +247,6 @@ void SubCircuit::initSubcircuit()
             else if( type == "eResistorDip" )  
             {
                 int size = 8;
-                std::cout << "Моя пришла ломать начаник"<<std::endl;
                 eResistorDip* eresistordip = new eResistorDip( id.toStdString() );
                 if( element.hasAttribute("size") ) size = element.attribute( "size" ).toInt();
                 eresistordip->setSize( size );

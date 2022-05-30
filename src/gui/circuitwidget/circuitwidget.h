@@ -33,7 +33,6 @@ class MAINMODULE_EXPORT CircuitWidget : public QWidget
     public:
         CircuitWidget( QWidget *parent );
         ~CircuitWidget();
-        Component* DIM_create(QString type, QString id);
 
  static CircuitWidget* self() { return m_pSelf; }
 
@@ -62,12 +61,12 @@ class MAINMODULE_EXPORT CircuitWidget : public QWidget
         void dataAvailable( int uart, const QByteArray &data );
         
     public:
-
+    Component* DIM_create(QString type, QString id);
  static CircuitWidget*  m_pSelf;
 
         QVBoxLayout    m_verticalLayout;
         QHBoxLayout    m_horizontLayout;
-        CircuitView    m_circView;                                          //ТУТ
+        CircuitView    m_circView;
         
         //TerminalWidget    m_terminal;
         PlotterWidget     m_plotter;

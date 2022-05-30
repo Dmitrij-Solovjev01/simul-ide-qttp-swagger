@@ -46,9 +46,9 @@ class MAINMODULE_EXPORT ComponentSelector : public QTreeWidget
         void mouseReleaseEvent(QMouseEvent*);
 
     private slots:
-        void slotItemClicked( QTreeWidgetItem* item, int column );                                          //при нажатии
-        //void slotContextMenu(const QPoint&);                                                              //Хрень которая ни на что не влияет
-        void slotManageComponents();                                                                        //ПКМ?
+        void slotItemClicked( QTreeWidgetItem* item, int column );
+        void slotContextMenu(const QPoint&);
+        void slotManageComponents();
 
     private:
  static ComponentSelector* m_pSelf;

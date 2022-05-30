@@ -28,10 +28,9 @@ static const char* Resistor_properties[] = {
 
 Component* Resistor::construct( QObject* parent, QString type, QString id )
 { return new Resistor( parent, type, id ); }
-#include <iostream>
-using namespace std;
-LibraryItem* Resistor::libraryItem() {              //ТУТ!!!!!!!
-    cout <<"Я создаю резистор" <<endl;
+
+LibraryItem* Resistor::libraryItem()
+{
     return new LibraryItem(
             tr( "Resistor" ),
             tr( "Passive" ),
@@ -41,7 +40,9 @@ LibraryItem* Resistor::libraryItem() {              //ТУТ!!!!!!!
 }
 
 Resistor::Resistor( QObject* parent, QString type, QString id )
-        : Component( parent, type, id ), eResistor( id.toStdString() ) {
+        : Component( parent, type, id )
+        , eResistor( id.toStdString() )
+{
     Q_UNUSED( Resistor_properties );
 
     m_area = QRectF( -11, -4.5, 22, 9 );
@@ -49,7 +50,7 @@ Resistor::Resistor( QObject* parent, QString type, QString id )
     QString pinId = m_id;
     pinId.append(QString("-lPin"));
     QPoint pinPos = QPoint(-8-8,0);
-    m_ePin[0] = new Pin( 180, pinPos, pinId, 0, this);                      //ТУТ
+    m_ePin[0] = new Pin( 180, pinPos, pinId, 0, this);
 
     pinId = m_id;
     pinId.append(QString("-rPin"));

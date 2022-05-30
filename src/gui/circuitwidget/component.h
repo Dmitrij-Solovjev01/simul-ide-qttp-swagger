@@ -151,7 +151,6 @@ class MAINMODULE_EXPORT Component : public QObject, public QGraphicsItem
 
         void setValue( double val );
         void setflip();
-    public:
         
         double m_value;
 
@@ -219,7 +218,7 @@ class Label : public QGraphicsTextItem
         void contextMenuEvent(QGraphicsSceneContextMenuEvent* event);
         void focusOutEvent(QFocusEvent *event);
 
-        public:
+    private:
         Component*  m_parentComp;
         
         int m_labelx;

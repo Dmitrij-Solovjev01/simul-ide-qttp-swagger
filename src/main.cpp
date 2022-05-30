@@ -78,8 +78,8 @@ int main(int argc, char *argv[])
     paths.append("plugins/qmltooling");
     paths.append("plugins/printsupport");
     QCoreApplication::setLibraryPaths(paths);
-    
-    if (AttachConsole(ATTACH_PARENT_PROCESS)) 
+
+    if (AttachConsole(ATTACH_PARENT_PROCESS))
     {
         freopen("CONOUT$", "w", stdout);
         freopen("CONOUT$", "w", stderr);
@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
         langF = langFile( locale );
     }
     if( langF == "" ) langF = "../share/simulide/translations/simulide_en.qm";
-    
+
     QTranslator translator;
     translator.load( langF );
     app.installTranslator( &translator );

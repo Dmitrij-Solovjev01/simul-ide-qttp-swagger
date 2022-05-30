@@ -23,7 +23,6 @@
 #include "connector.h"
 #include "circuit.h"
 
-#include<iostream>
 
 Pin::Pin( int angle, const QPoint &pos, QString id, int index, Component* parent )
    : QObject()
@@ -31,9 +30,6 @@ Pin::Pin( int angle, const QPoint &pos, QString id, int index, Component* parent
    , ePin( id.toStdString(), index )
    , m_label( parent )
 {
-
-    std::cout << "PIN NAME >> " + id.toStdString()<<std::endl;                          //ТУТ
-
     m_component  = parent;
 
     m_blocked = false;

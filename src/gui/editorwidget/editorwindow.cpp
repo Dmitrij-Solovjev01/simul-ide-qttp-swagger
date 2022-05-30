@@ -158,10 +158,9 @@ bool EditorWindow::saveAs()
 
     return saveFile(fileName);
 }
-#include<iostream>
+
 bool EditorWindow::saveFile(const QString &fileName)
 {
-    std::cout <<fileName.toStdString()<<std::endl;
     QFile file(fileName);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, "EditorWindow::saveFile",

@@ -228,7 +228,8 @@ void ConnectorLine::remove()
     //m_pConnector->remove(); 
 }
 
-void ConnectorLine::mousePressEvent( QGraphicsSceneMouseEvent* event ) {
+void ConnectorLine::mousePressEvent( QGraphicsSceneMouseEvent* event )
+{
     if( event->button() == Qt::MidButton )                      // Move Line
     {
         event->accept();
@@ -252,7 +253,8 @@ void ConnectorLine::mousePressEvent( QGraphicsSceneMouseEvent* event ) {
         }
         else                                   // Connecting a wire here
         {   
-           if( Circuit::self()->is_constarted() ) {
+           if( Circuit::self()->is_constarted() )       
+           {
                Connector* con = Circuit::self()->getNewConnector();
                
                if( con->isBus() != m_isBus ) // Avoid connect Bus with no-Bus

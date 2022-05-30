@@ -344,7 +344,8 @@ void QPropertyModel::clear()
     endRemoveRows();
 }
 
-void QPropertyModel::registerCustomPropertyCB(QPropertyEditorWidget::UserTypeCB callback) {
+void QPropertyModel::registerCustomPropertyCB(QPropertyEditorWidget::UserTypeCB callback)
+{
     if( !m_userCallbacks.contains(callback) ) m_userCallbacks.push_back(callback);
 }
 

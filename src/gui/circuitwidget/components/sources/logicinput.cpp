@@ -56,7 +56,7 @@ LogicInput::LogicInput( QObject* parent, QString type, QString id )
     QString nodid = id;
     nodid.append(QString("-outnod"));
     QPoint nodpos = QPoint(16,0);
-    m_outpin = new Pin( 0, nodpos, nodid, 0, this);     //Каким-то боком ТУТ
+    m_outpin = new Pin( 0, nodpos, nodid, 0, this);
 
     nodid.append(QString("-eSource"));
     m_out = new eSource( nodid.toStdString(), m_outpin );
@@ -77,15 +77,9 @@ LogicInput::LogicInput( QObject* parent, QString type, QString id )
     
     Simulator::self()->addToUpdateList( this );
 
-    m_out->setOut(true);
-    //onbuttonclicked();
-
     connect( m_button, SIGNAL( clicked() ),
              this,     SLOT  ( onbuttonclicked() ));
 }
-
-
-
 
 LogicInput::~LogicInput() 
 {

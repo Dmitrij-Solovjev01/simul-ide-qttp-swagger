@@ -43,9 +43,11 @@ struct myPin {
         circ->closeconnector(to);
         return 0;
     }
+
     bool connectPinString(QString from, QString to){
         connectPin(getPin(from), getPin(to));
     }
+
     ~myPin(){
         delete circ;
     }
