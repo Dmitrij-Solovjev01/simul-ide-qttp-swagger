@@ -1,0 +1,9 @@
+./**/*
+.
+
+!qt5/qt6-comp/**/*
+!qt5/qt6-comp
+
+!QT_Project/**/*
+!QT_Project/
+
